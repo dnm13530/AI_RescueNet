@@ -56,7 +56,7 @@ Open http://localhost:5173 to submit, http://localhost:5173/admin for the live d
 | Google Cloud | **Maps JavaScript API** (live ops map) · **Cloud Translation API v2** (multilingual intake) · Google Chat webhook (auto-dispatch) |
 | Data | In-memory DB, 20-event historical playbook, Cyclone Biparjoy scenario JSON |
 | External | Open-Meteo (weather + geocoding) |
-| Hosting | Render (backend) · Vercel (frontend) |
+| Hosting | **Google Cloud Run** (backend, `asia-south1` Mumbai, buildpacks deploy from `/backend`) · Vercel (frontend) · Render (warm failover) |
 
 ---
 
@@ -110,7 +110,7 @@ frontend/
 
 ## Environment variables
 
-**Backend** (`backend/.env` locally, Render Environment in production):
+**Backend** (`backend/.env` locally, Cloud Run "Variables & Secrets" in production):
 
 | Variable | Required | Purpose |
 |---|---|---|
@@ -124,7 +124,7 @@ frontend/
 
 | Variable | Required | Purpose |
 |---|---|---|
-| `VITE_API_BASE` | yes | Backend origin (e.g. `https://ai-rescuenet-api.onrender.com`) |
+| `VITE_API_BASE` | yes | Backend origin — Cloud Run service URL (e.g. `https://ai-rescuenet-api-xxxxxxxx-as.a.run.app`) |
 | `VITE_GOOGLE_MAPS_API_KEY` | for the ops map | Maps JavaScript API key, restricted by HTTP referrer to the Vercel domain |
 | `VITE_GOOGLE_MAPS_MAP_ID` | for AdvancedMarker | Vector Map ID from Google Maps Platform → Map Management |
 
