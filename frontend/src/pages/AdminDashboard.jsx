@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
-import { getAllocations, startDemo, stopDemo, getDemoStatus, predictPrePositioning, compareScenario } from '../services/api';
+import { getAllocations, startDemo, stopDemo, getDemoStatus, predictPrePositioning, compareScenario, SOCKET_URL } from '../services/api';
 import { Brain, PackageCheck, AlertCircle, RefreshCw, Camera, Globe, BookOpen, Package, Play, Square, Clock, Radar, Target, ChevronDown, ChevronUp, Scale, TrendingDown, TrendingUp } from 'lucide-react';
 import { io } from 'socket.io-client';
 
@@ -68,7 +68,7 @@ export default function AdminDashboard() {
     }).catch(() => {});
 
     // Hook into backend via WebSockets
-    const socket = io('http://localhost:5000');
+    const socket = io(SOCKET_URL);
 
     socket.on('new_allocation', () => {
       console.log('Realtime socket ping received! Instantly auto-fetching fresh allocations.');

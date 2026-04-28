@@ -9,14 +9,20 @@ const { initializeKnowledgeBase } = require('./services/ragService');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+// CORS_ORIGIN may be a comma-separated list; '*' (or unset) allows any origin.
+const corsOriginEnv = process.env.CORS_ORIGIN;
+const allowedOrigins = corsOriginEnv && corsOriginEnv !== '*'
+    ? corsOriginEnv.split(',').map(s => s.trim()).filter(Boolean)
+    : '*';
+
+app.use(cors({ origin: allowedOrigins, credentials: false }));
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
 
 app.use('/api', apiRoutes);
 
 const server = http.createServer(app);
-const io = new Server(server, { cors: { origin: '*' } });
+const io = new Server(server, { cors: { origin: allowedOrigins } });
 app.locals.io = io; // Injecting io instance globally so route controllers can emit events
 
 // Health check

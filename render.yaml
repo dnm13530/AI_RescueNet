@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: ai-rescuenet-api
+    runtime: node
+    plan: free
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GOOGLE_CHAT_WEBHOOK_URL
+        sync: false
+      - key: ENABLE_GROUNDING
+        value: "false"
+      - key: CORS_ORIGIN
+        sync: false

@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api';
+const API_BASE = (import.meta.env.VITE_API_BASE || 'http://localhost:5000').replace(/\/$/, '');
+export const SOCKET_URL = API_BASE;
+const API_URL = `${API_BASE}/api`;
 
 export const submitRequest = async (requestData) => {
     const response = await axios.post(`${API_URL}/requests`, requestData);
