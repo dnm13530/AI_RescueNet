@@ -12,6 +12,8 @@ services:
         sync: false
       - key: GOOGLE_CHAT_WEBHOOK_URL
         sync: false
+      - key: GOOGLE_TRANSLATE_API_KEY
+        sync: false
       - key: ENABLE_GROUNDING
         value: "false"
       - key: CORS_ORIGIN

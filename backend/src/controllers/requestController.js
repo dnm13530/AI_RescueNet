@@ -2,7 +2,8 @@ const db = require('../models/db');
 const { analyzeRequestPrioritiy } = require('../services/geminiService');
 const { calculateAllocations } = require('../services/allocationService');
 const { sendEmergencyCard } = require('../services/googleChatService');
-const { getLiveWeather } = require('../services/weatherService');
+const { getLiveWeather, geocodeLocation } = require('../services/weatherService');
+const { translateIfNeeded } = require('../services/translationService');
 const { findSimilarHistoricalEvent } = require('../services/ragService');
 const { getLiveDisasterIntel } = require('../services/groundingService');
 
@@ -15,9 +16,11 @@ async function submitRequest(req, res) {
             return res.status(400).json({ error: "Missing required fields: type, peopleCount, location" });
         }
 
-        // Live weather, semantic RAG, and (gated) Google Search grounding in parallel
-        const [liveWeatherContext, ragContext, liveIntelContext] = await Promise.all([
+        // Live weather, geocoding, translation, semantic RAG, and (gated) grounding in parallel
+        const [liveWeatherContext, geocode, translation, ragContext, liveIntelContext] = await Promise.all([
             getLiveWeather(requestData.location),
+            geocodeLocation(requestData.location),
+            translateIfNeeded(requestData.notes),
             findSimilarHistoricalEvent(requestData),
             getLiveDisasterIntel(requestData)
         ]);
@@ -34,11 +37,17 @@ async function submitRequest(req, res) {
             id: Date.now().toString(),
             timestamp: new Date().toISOString(),
             ...requestData,
+            // Use translated text (if non-English) for downstream display; keep original separately
+            notes: translation?.translatedText || requestData.notes,
+            originalNotes: translation?.translatedText ? requestData.notes : undefined,
+            translationSourceLanguage: translation?.sourceLanguage || undefined,
+            coords: geocode ? { lat: geocode.lat, lng: geocode.lng } : null,
+            resolvedLocation: geocode?.resolvedName || null,
             score,
             reasoning: baseReasoning, // Standard base reasoning
             forecast: predictiveForecast, // Advanced Temporal prediction
             imageVerification, // New Vision AI analysis
-            detectedLanguage,  // Source Language auto-translation flag
+            detectedLanguage: translation?.sourceLanguage ? translation.sourceLanguage : detectedLanguage,
             ragPrecedent, // Enterprise organizational memory
             recommendedResources, // Agentic allocation plan emitted via Gemini Function Calling
             autoDispatched: score >= 80

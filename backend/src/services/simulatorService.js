@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const db = require('../models/db');
+const { geocodeLocation } = require('./weatherService');
 
 const SCENARIO_DIR = path.join(__dirname, '..', 'data', 'scenarios');
 
@@ -29,8 +30,9 @@ function emitSimEvent(io, payload) {
 }
 
 function scheduleEvent(io, scenario, event, eventIndex) {
-    const timer = setTimeout(() => {
+    const timer = setTimeout(async () => {
         const id = `sim-${scenario.id}-${eventIndex}-${Date.now()}`;
+        const geo = await geocodeLocation(event.location).catch(() => null);
         const request = {
             id,
             timestamp: new Date().toISOString(),
@@ -41,6 +43,8 @@ function scheduleEvent(io, scenario, event, eventIndex) {
             hoursFromLandfall: event.hoursFromLandfall,
             type: event.type,
             location: event.location,
+            coords: geo ? { lat: geo.lat, lng: geo.lng } : null,
+            resolvedLocation: geo?.resolvedName || null,
             peopleCount: event.peopleCount,
             urgency: event.urgency,
             notes: event.notes,

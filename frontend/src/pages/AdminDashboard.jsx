@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import { getAllocations, startDemo, stopDemo, getDemoStatus, predictPrePositioning, compareScenario, SOCKET_URL } from '../services/api';
 import { Brain, PackageCheck, AlertCircle, RefreshCw, Camera, Globe, BookOpen, Package, Play, Square, Clock, Radar, Target, ChevronDown, ChevronUp, Scale, TrendingDown, TrendingUp } from 'lucide-react';
 import { io } from 'socket.io-client';
+import AllocationsMap from '../components/AllocationsMap';
 
 export default function AdminDashboard() {
   const [data, setData] = useState({ allocations: [], remainingInventory: {} });
@@ -547,6 +548,11 @@ export default function AdminDashboard() {
         )}
       </div>
 
+      {/* Live Operations Map */}
+      <div style={{ marginBottom: '24px' }}>
+        <AllocationsMap allocations={data.allocations} />
+      </div>
+
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 300px', gap: '24px' }}>
         {/* Main List */}
         <div>
@@ -591,6 +597,20 @@ export default function AdminDashboard() {
                           textTransform: 'uppercase'
                         }}>
                           <Globe size={12} /> AUTOTRANSLATED FROM {req.detectedLanguage}
+                        </div>
+                      )}
+                      {req.originalNotes && (
+                        <div style={{
+                          fontSize: '0.78rem',
+                          color: 'var(--text-secondary)',
+                          background: 'rgba(56, 189, 248, 0.06)',
+                          border: '1px solid rgba(56, 189, 248, 0.2)',
+                          padding: '6px 10px',
+                          borderRadius: '6px',
+                          marginBottom: '10px',
+                          fontStyle: 'italic'
+                        }}>
+                          🌐 Original ({req.detectedLanguage}): &ldquo;{req.originalNotes}&rdquo;
                         </div>
                       )}
 

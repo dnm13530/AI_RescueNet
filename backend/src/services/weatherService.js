@@ -1,5 +1,22 @@
 const axios = require('axios');
 
+async function geocodeLocation(locationText) {
+    try {
+        const geoUrl = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(locationText)}&count=1&language=en&format=json`;
+        const geoRes = await axios.get(geoUrl);
+        if (!geoRes.data.results || geoRes.data.results.length === 0) return null;
+        const loc = geoRes.data.results[0];
+        return {
+            lat: loc.latitude,
+            lng: loc.longitude,
+            resolvedName: `${loc.name}${loc.admin1 ? ', ' + loc.admin1 : ''}${loc.country ? ', ' + loc.country : ''}`
+        };
+    } catch (error) {
+        console.error('Geocoding error:', error.message);
+        return null;
+    }
+}
+
 async function getLiveWeather(locationText) {
     try {
         // 1. Geocode the location text to Lat/Long using Open-Meteo
@@ -42,5 +59,6 @@ async function getLiveWeather(locationText) {
 }
 
 module.exports = {
-    getLiveWeather
+    getLiveWeather,
+    geocodeLocation
 };
