@@ -1,0 +1,48 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Build output
+dist/
+build/
+**/dist/
+**/build/
+
+# Environment / secrets
+.env
+.env.local
+.env.*.local
+**/.env
+**/.env.local
+**/.env.*.local
+
+# Editor / OS
+.vscode/
+.idea/
+.claude/
+*.swp
+.DS_Store
+Thumbs.db
+~$*
+
+# Logs
+*.log
+npm-debug.log*
+
+# Misc
+.cache/
+coverage/
+
+# Generated submission artefacts (regenerate via fill_deck.py)
+# Uncomment if you don't want to ship the generated deck:
+# AI_RescueNet_Submission_Deck.pptx
+
+# Scratch / planning docs — kept locally, never pushed
+AGENTS.md
+CLAUDE.md
+PROJECT_STATUS.md
+DEMO_VIDEO_SCRIPT.md
+SUBMISSION_TEXT.md
+fill_deck.py
+\[EXT\]*.pptx
+Echo.java

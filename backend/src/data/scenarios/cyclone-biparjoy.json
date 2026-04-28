@@ -1,0 +1,269 @@
+{
+  "id": "cyclone-biparjoy-2023",
+  "name": "Cyclone Biparjoy (June 2023, Gujarat)",
+  "description": "Real historical disaster: Extremely Severe Cyclonic Storm that made landfall near Jakhau, Kutch on 15 June 2023 with 125-140 km/h winds. 74,000 evacuated from coastal Gujarat — largest pre-landfall evacuation in India. Replayed here compressed from ~96h real-time into ~3 min.",
+  "realDurationHours": 96,
+  "compressedDurationMs": 180000,
+  "events": [
+    {
+      "tMs": 0,
+      "hoursFromLandfall": -72,
+      "phase": "Pre-landfall (T-72h) — IMD Warning Issued",
+      "type": "rescue",
+      "location": "Porbandar, Gujarat",
+      "peopleCount": 12,
+      "urgency": "Medium",
+      "notes": "Fishing community requesting return guidance; 200+ boats still at sea per IMD advisory. Arabian Sea system intensifying.",
+      "score": 55,
+      "reasoning": "IMD has issued a cyclonic storm warning. RAG precedent: 1999 Odisha Super Cyclone shows early fisherman recall prevents fatalities at sea. Pre-emptive dispatch of rescue coordinators recommended.",
+      "forecast": "Conditions calm now (wind ~25 km/h) but Arabian Sea system projected to intensify to Severe Cyclonic Storm within 18h. All boats must return by T-48h.",
+      "ragPrecedent": "1999 Odisha Super Cyclone: Late fisherman recall contributed to high at-sea casualties. Early warning window is critical.",
+      "recommendedResources": [
+        { "resourceType": "rescue", "quantity": 2, "reasoning": "Pre-position rescue coordinators at Porbandar harbor for fisherman recall." },
+        { "resourceType": "transport", "quantity": 3, "reasoning": "Harbor-to-shelter transport for families awaiting boats." }
+      ],
+      "autoDispatched": false
+    },
+    {
+      "tMs": 22500,
+      "hoursFromLandfall": -60,
+      "phase": "Pre-landfall (T-60h) — Evacuation Planning",
+      "type": "shelter",
+      "location": "Mandvi, Kutch",
+      "peopleCount": 40,
+      "urgency": "Medium",
+      "notes": "District administration preparing cyclone shelters. Requesting pre-staged shelter kits for 74,000 expected evacuees across coastal Kutch.",
+      "score": 68,
+      "reasoning": "Mass evacuation window opening. RAG retrieved 2020 Cyclone Amphan precedent — shelters must be stocked 48h before landfall, not during. Pre-staging now prevents the last-mile bottleneck.",
+      "forecast": "Winds freshening (45 km/h). Storm upgraded to Severe Cyclonic Storm. By T-36h, wind/rain will make road transport unsafe — window closing.",
+      "ragPrecedent": "2020 Cyclone Amphan: Shelter kits arrived post-landfall for 30% of evacuees. Lesson — pre-stage, never just-in-time.",
+      "recommendedResources": [
+        { "resourceType": "shelter", "quantity": 40, "reasoning": "Pre-stage shelter kits at Mandvi taluka HQ covering first wave of evacuees." },
+        { "resourceType": "clothing", "quantity": 20, "reasoning": "Dry clothing for wet-season evacuations." }
+      ],
+      "autoDispatched": false
+    },
+    {
+      "tMs": 45000,
+      "hoursFromLandfall": -48,
+      "phase": "Pre-landfall (T-48h) — Fisherman Return Mandate",
+      "type": "transport",
+      "location": "Dwarka, Gujarat",
+      "peopleCount": 25,
+      "urgency": "High",
+      "notes": "Fishermen returning to Dwarka harbor. Need transport to evacuate families from coastal villages before road closures.",
+      "score": 72,
+      "reasoning": "Evacuation window narrowing. Live weather confirms rising winds. Transport must move families inland now — in 12h rain will make roads impassable in Okhamandal taluka.",
+      "forecast": "Winds 65 km/h and rising. Rain bands expected within 12h. Road transport viable for another 24h then degraded.",
+      "ragPrecedent": "2018 Kerala Floods: Transport dispatched too late, families stranded on rooftops. Move inland while roads still dry.",
+      "recommendedResources": [
+        { "resourceType": "transport", "quantity": 6, "reasoning": "Family evacuation from coastal villages to inland shelters." }
+      ],
+      "autoDispatched": false
+    },
+    {
+      "tMs": 67500,
+      "hoursFromLandfall": -36,
+      "phase": "Pre-landfall (T-36h) — First Shelters Open",
+      "type": "water",
+      "location": "Naliya, Kutch",
+      "peopleCount": 50,
+      "urgency": "High",
+      "notes": "First batch of evacuees arriving at Naliya relief camp. Need drinking water stockpile for 72h shelter occupancy.",
+      "score": 74,
+      "reasoning": "Shelter occupancy beginning. Water dispatch must precede peak evacuation so supply is already on site when roads degrade. NDRF confirms 3 teams deploying.",
+      "forecast": "Storm now Very Severe Cyclonic Storm (winds 95 km/h in open sea). Landfall trajectory confirmed toward Jakhau-Mandvi coast.",
+      "ragPrecedent": "1999 Odisha Super Cyclone: Water contamination in shelters caused secondary casualties. Pre-position sealed water.",
+      "recommendedResources": [
+        { "resourceType": "water", "quantity": 50, "reasoning": "Sealed drinking water for 72h shelter occupancy at Naliya camp." },
+        { "resourceType": "sanitation", "quantity": 10, "reasoning": "Sanitation kits before occupancy peaks and contamination risk spikes." }
+      ],
+      "autoDispatched": false
+    },
+    {
+      "tMs": 90000,
+      "hoursFromLandfall": -24,
+      "phase": "Pre-landfall (T-24h) — Mass Evacuation Peak",
+      "type": "shelter",
+      "location": "Jakhau Coast, Kutch",
+      "peopleCount": 75,
+      "urgency": "Critical",
+      "notes": "Evacuation peak. Administration reports 74,000 people moved to 475 shelters across coastal Kutch, Saurashtra, Devbhumi Dwarka. Local requests for additional shelter capacity at overflow camps.",
+      "score": 86,
+      "reasoning": "Evacuation at peak. Score elevated: live weather shows imminent landfall trajectory, RAG confirms overflow-camp need from Amphan precedent. Auto-dispatch threshold crossed.",
+      "forecast": "Landfall in 24h near Jakhau. Sustained winds 125-140 km/h projected. Storm surge 2-3m. All outdoor activity will cease within 12h.",
+      "ragPrecedent": "2020 Cyclone Amphan: Overflow camps saved lives when primary shelters exceeded capacity by 20%. Assume 120% occupancy.",
+      "recommendedResources": [
+        { "resourceType": "shelter", "quantity": 75, "reasoning": "Overflow shelter capacity for 120% load across Kutch camps." },
+        { "resourceType": "food", "quantity": 50, "reasoning": "72h food stockpile at primary shelter cluster." }
+      ],
+      "autoDispatched": true
+    },
+    {
+      "tMs": 101250,
+      "hoursFromLandfall": -18,
+      "phase": "Pre-landfall (T-18h) — Heavy Rain Begins",
+      "type": "medical",
+      "location": "Bhuj, Kutch",
+      "peopleCount": 8,
+      "urgency": "High",
+      "notes": "Elderly and pregnant evacuees at Bhuj shelter need medical monitoring. 3 pregnant women, 2 on dialysis schedule disrupted by evacuation.",
+      "score": 78,
+      "reasoning": "Medical vulnerability in shelter population. RAG precedent Uttarakhand Floods 2013 — dialysis disruption caused preventable deaths. Dispatch medical team before road closures.",
+      "forecast": "Wind 85 km/h now. Rain bands arriving. In 6h outdoor medical transport becomes unsafe.",
+      "ragPrecedent": "2013 Uttarakhand Floods: Dialysis patients without access had 48h survival window. Medical continuity planning is non-negotiable.",
+      "recommendedResources": [
+        { "resourceType": "medical", "quantity": 4, "reasoning": "Medical team with dialysis continuity kit for Bhuj shelter." }
+      ],
+      "autoDispatched": false
+    },
+    {
+      "tMs": 112500,
+      "hoursFromLandfall": -12,
+      "phase": "Pre-landfall (T-12h) — Power Outages Begin",
+      "type": "medical",
+      "location": "Jakhau, Kutch",
+      "peopleCount": 15,
+      "urgency": "Critical",
+      "notes": "Power outages cascading through coastal Jakhau. Shelter generator running but medical refrigeration at risk. Insulin + vaccine cold chain failing.",
+      "score": 84,
+      "reasoning": "Cold-chain failure imminent. Score elevated: live outage reports, RAG precedent shows vaccine loss causes weeks-long secondary crisis. Auto-dispatch.",
+      "forecast": "Wind 110 km/h. Landfall in 12h. Most of Kutch grid expected to fail within 6h. Solar-backup cold chain is the only viable path.",
+      "ragPrecedent": "2020 Cyclone Amphan: 40% of insulin stocks lost to cold-chain failure. Solar cold boxes must precede outage, not follow it.",
+      "recommendedResources": [
+        { "resourceType": "medical", "quantity": 6, "reasoning": "Solar-backed cold-chain medical kit for Jakhau shelter." },
+        { "resourceType": "rescue", "quantity": 2, "reasoning": "NDRF escort for medical delivery through degraded road conditions." }
+      ],
+      "autoDispatched": true
+    },
+    {
+      "tMs": 123750,
+      "hoursFromLandfall": -6,
+      "phase": "Pre-landfall (T-6h) — Landfall Imminent",
+      "type": "rescue",
+      "location": "Jakhau Coast, Kutch",
+      "peopleCount": 20,
+      "urgency": "Critical",
+      "notes": "Last non-evacuees sheltering in place refusing to move. NDRF reports 20 persons still in danger zone within 5 km of expected landfall.",
+      "score": 92,
+      "reasoning": "Highest-risk scenario: late refusers. RAG precedent Odisha 1999 shows same demographic had 80% mortality. Forced rescue window closing. Auto-dispatch immediately.",
+      "forecast": "Wind 125 km/h. Landfall in 6h. This is the LAST rescue window before outdoor operations must halt for crew safety.",
+      "ragPrecedent": "1999 Odisha Super Cyclone: Late refusers had 80% mortality. Forced rescue is ethical when window is final.",
+      "recommendedResources": [
+        { "resourceType": "rescue", "quantity": 4, "reasoning": "NDRF hard-hat rescue team for final sweep of Jakhau 5 km radius." },
+        { "resourceType": "transport", "quantity": 2, "reasoning": "Armored transport for forced evacuation." }
+      ],
+      "autoDispatched": true
+    },
+    {
+      "tMs": 135000,
+      "hoursFromLandfall": 0,
+      "phase": "LANDFALL (T-0) — Jakhau Coast",
+      "type": "rescue",
+      "location": "Jakhau, Kutch",
+      "peopleCount": 30,
+      "urgency": "Critical",
+      "notes": "LANDFALL. Eye of Cyclone Biparjoy crossing Jakhau coast. Severe structural damage reports. Outdoor operations paused. Standby for post-landfall surge.",
+      "score": 95,
+      "reasoning": "Peak event. All pre-staged resources are now in position. Score reflects standby for surge damage, not new dispatch — the window to move anything new is closed.",
+      "forecast": "Wind 140 km/h. Storm surge active. Next 3h will determine damage extent. No outdoor movement viable.",
+      "ragPrecedent": "1999 Odisha Super Cyclone: First 3h post-landfall are the worst for rescue crews. Hold position.",
+      "recommendedResources": [
+        { "resourceType": "rescue", "quantity": 3, "reasoning": "Standby rescue reserve at Bhuj for post-landfall deployment." }
+      ],
+      "autoDispatched": true
+    },
+    {
+      "tMs": 140625,
+      "hoursFromLandfall": 3,
+      "phase": "Post-landfall (T+3h) — First Damage Reports",
+      "type": "rescue",
+      "location": "Mandvi, Kutch",
+      "peopleCount": 18,
+      "urgency": "Critical",
+      "notes": "Post-landfall damage survey: collapsed structures in Mandvi town. 18 reported trapped, mostly in older stone buildings. Access roads partially cleared.",
+      "score": 90,
+      "reasoning": "Critical rescue phase. Winds subsiding below 80 km/h — rescue operations now safe to resume. Deploy pre-staged teams from Bhuj standby.",
+      "forecast": "Wind dropping to 70 km/h. Rain continuing. Next 12h window is peak rescue opportunity before monsoon-like tail.",
+      "ragPrecedent": "2018 Kerala Floods: First 12h post-peak is golden hour for trapped-victim recovery.",
+      "recommendedResources": [
+        { "resourceType": "rescue", "quantity": 5, "reasoning": "Heavy-rescue team with cutting equipment for collapsed stone structures." },
+        { "resourceType": "medical", "quantity": 3, "reasoning": "Trauma medical team escorting rescue." }
+      ],
+      "autoDispatched": true
+    },
+    {
+      "tMs": 146250,
+      "hoursFromLandfall": 6,
+      "phase": "Post-landfall (T+6h) — Medical Surge in Shelters",
+      "type": "medical",
+      "location": "Naliya Relief Camp, Kutch",
+      "peopleCount": 12,
+      "urgency": "High",
+      "notes": "Respiratory cases rising at Naliya camp — cold, wet conditions. Children and elderly most affected. Pre-staged medical team overloaded.",
+      "score": 79,
+      "reasoning": "Shelter medical load surging. Pre-staged medical kit from T-36h is operational but team capacity exceeded. Augment with reserves.",
+      "forecast": "Shelter occupancy extending to 72h+. Respiratory caseload will double in 24h without intervention.",
+      "ragPrecedent": "2020 Cyclone Amphan: Shelter respiratory surge was under-resourced, caused 15% secondary medical crisis.",
+      "recommendedResources": [
+        { "resourceType": "medical", "quantity": 4, "reasoning": "Reinforce Naliya camp medical team for respiratory surge." }
+      ],
+      "autoDispatched": false
+    },
+    {
+      "tMs": 157500,
+      "hoursFromLandfall": 12,
+      "phase": "Post-landfall (T+12h) — Water & Sanitation Crisis",
+      "type": "water",
+      "location": "Kutch District (multiple camps)",
+      "peopleCount": 60,
+      "urgency": "High",
+      "notes": "Standing floodwater contaminating water supplies. 6 camps reporting boil-water conditions. Requesting emergency sealed water refill.",
+      "score": 77,
+      "reasoning": "Water contamination risk rising. Pre-staged water from T-36h depleting. Refill window open — roads partially clear.",
+      "forecast": "Standing water will persist 48-72h. Secondary illness risk (waterborne) is the dominant threat from here forward.",
+      "ragPrecedent": "1999 Odisha Super Cyclone: Waterborne illness caused more post-landfall casualties than the cyclone itself. Water + sanitation is the real Phase 2 mission.",
+      "recommendedResources": [
+        { "resourceType": "water", "quantity": 60, "reasoning": "Emergency sealed water refill across 6 camps." },
+        { "resourceType": "sanitation", "quantity": 15, "reasoning": "Sanitation kit refill to prevent waterborne secondary illness." }
+      ],
+      "autoDispatched": false
+    },
+    {
+      "tMs": 170000,
+      "hoursFromLandfall": 18,
+      "phase": "Recovery (T+18h) — Food Resupply",
+      "type": "food",
+      "location": "Kutch Relief Cluster",
+      "peopleCount": 80,
+      "urgency": "Medium",
+      "notes": "Evacuee population now past 48h in shelters. Pre-staged food stocks at 40% remaining. Need resupply before shelter transition to recovery phase.",
+      "score": 66,
+      "reasoning": "Recovery phase. Urgency moderate: nobody starving, but continuity of food supply prevents shelter abandonment. Roads clearing, supply chain restored.",
+      "forecast": "Weather clearing within 12h. Evacuees will begin returning to homes in 24-48h but shelter food must bridge the gap.",
+      "ragPrecedent": "2018 Kerala Floods: Shelter food gaps caused premature returns, exposing evacuees to unsafe home conditions. Continuity matters.",
+      "recommendedResources": [
+        { "resourceType": "food", "quantity": 80, "reasoning": "Resupply shelter food cluster for next 48h bridging to return phase." }
+      ],
+      "autoDispatched": false
+    },
+    {
+      "tMs": 178000,
+      "hoursFromLandfall": 24,
+      "phase": "Recovery (T+24h) — Return Planning",
+      "type": "clothing",
+      "location": "Mandvi Taluka, Kutch",
+      "peopleCount": 45,
+      "urgency": "Medium",
+      "notes": "Families beginning return assessments. Homes waterlogged, possessions ruined. Request dry clothing and basic household kits.",
+      "score": 58,
+      "reasoning": "Return phase. Dry clothing + household kits enable families to move out of shelters and begin rebuild. Lower score but critical for shelter turnover.",
+      "forecast": "Weather clear. Next 72h is return-and-rebuild window. Shelter capacity must be freed for possible second-wave needs.",
+      "ragPrecedent": "2018 Kerala Floods: Return kits accelerated shelter turnover, freed capacity for secondary evacuations during aftershocks.",
+      "recommendedResources": [
+        { "resourceType": "clothing", "quantity": 45, "reasoning": "Dry clothing kits for returning families in Mandvi taluka." }
+      ],
+      "autoDispatched": false
+    }
+  ]
+}
